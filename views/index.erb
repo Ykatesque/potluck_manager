@@ -1,0 +1,13 @@
+<h1>THIS IS THE INDEX PAGE</h1>
+
+<h3>Tags</h3>
+<a href="new_tag" class="btn btn-med btn-primary" type="button">New tag</a><br><br>
+<ul>
+  <% @tags.each do |tag| %>
+    <li>
+      <strong><%= tag.name %></strong>
+
+
+    </li>
+  <% end %>
+</ul>

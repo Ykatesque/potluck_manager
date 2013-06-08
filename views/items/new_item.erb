@@ -1,0 +1,16 @@
+Add a new item:
+<form method="post" action="/new_item">
+  Item:
+  <input type="text" name="item[name]">
+
+  <% Tag.all.each do |tag| %>
+      <input type="checkbox"
+      name="item[tag_ids][]"
+      value="<%= tag.id %>">
+      <%= tag.name %>
+
+    <% end %>
+
+    <br>
+  <button>Save Item</button>
+</form>
