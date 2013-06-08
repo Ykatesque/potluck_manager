@@ -27,6 +27,15 @@ get "/" do
   erb :index
 end
 
+get "/admin" do
+  @people = Person.all
+  @tags = Tag.all
+  @potlucks = Potluck.all
+  @items = Item.all
+
+  erb :"tags/admin"
+end
+
 
 require_relative "controllers/items"
 require_relative "controllers/potlucks"
