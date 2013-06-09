@@ -1,0 +1,15 @@
+DEETS_POTLUCK
+I tried to make it only show items belonging to that potluck but the while loop wont work. this is what i am trying to say:
+<!--        <% whle item.potluck.id %> == <% potluck.id %> -->
+
+<!--Can we use the same form? Can't we change on the
+  models page that if the items are new, make an item,
+  if they are updating, then make an item?
+  This is used for saving edit:
+  <form method="post" action="/save_item/<%= @item.id %>">
+-->
+<!--Pushing this button needs to add a new item to the potluck connecting them
+  through the database-->
+
+
+  Maybe we can use something like: <%= "checked" if @item.tags.include?(tag)

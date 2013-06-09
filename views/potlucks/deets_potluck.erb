@@ -5,9 +5,8 @@
 <h3>Name: <%= @potluck.name %></h3>
 <h4>Location: <%= @potluck.location %></h4>
 <h4>Date: <%= @potluck.date %></h4>
-<!--Pushing this button needs to add a new item to the potluck connecting them
-  through the database-->
-  <a href="new_potluck" class="button success small">Add Item</a><br><br>
+
+  <a href="/new_item" class="button success small">Add Item</a><br><br>
 <table>
   <thead>
     <tr>
@@ -20,14 +19,14 @@
   <tbody>
     <tr>
       <% @items.each do |item| %>
+
       <td><%= item.name %></td>
       <td><%= item.tags.map {|tag| tag.name }.join(", ") %></td>
-      <td>Owner</td>
+      <td><%= item.person.name if item.person %></td>
       <td>Edit</td>
     </tr><% end %>
   </tbody>
 </table>
-
 
   </div>
 </div>
