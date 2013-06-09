@@ -1,3 +1,10 @@
+/* Get LuckyPots Stylez*/
+.luckypot {
+  font-family: 'Oleo Script Swash Caps', cursive;
+  letter-spacing: 1px;
+}
+
+/* Foundation Stylez*/
 *,
 *:before,
 *:after {

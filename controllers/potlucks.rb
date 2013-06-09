@@ -48,7 +48,7 @@ post "/save_potluck/:potluck_id" do
   @potluck = Potluck.find_by_id(params[:potluck_id])
 
   if @potluck.update_attributes(params[:potluck])
-    redirect "/potlucks"
+    redirect back
   else
     erb :"potlucks/edit_potluck"
   end
