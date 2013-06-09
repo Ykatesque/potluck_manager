@@ -18,12 +18,12 @@
   </thead>
   <tbody>
     <tr>
-      <% @items.each do |item| %>
+      <% @potluck.items.each do |item| %>
 
       <td><%= item.name %></td>
       <td><%= item.tags.map {|tag| tag.name }.join(", ") %></td>
       <td><%= item.person.name if item.person %></td>
-      <td>Edit</td>
+      <td><a href="/edit_item/<%= item.id %>">Edit</a></td>
     </tr><% end %>
   </tbody>
 </table>

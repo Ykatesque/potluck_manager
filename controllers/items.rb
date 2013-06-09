@@ -2,7 +2,14 @@ get "/new_item" do
   erb  :"items/new_item"
 end
 
-post "/new_item" do
+get "/edit_item/:item_id" do
+  @item = Item.find_by_id(params[:item_id])
+
+  erb :"items/edit_item"
+end
+
+#clean this up
+post "/new_item/" do
   @potluck = Potluck.find_by_id(params[:potluck_id])
   @potlucks = Potluck.all
   @potluck = Potluck.new(params[:potluck])
@@ -16,10 +23,20 @@ post "/new_item" do
   @tag = Tag.new(params[:tag])
   @tags = Tag.all
 
-  if @item.save
-    redirect back
+  if
+    @item.save
+    redirect "/potlucks"
   else
-    erb :"items/new_item"
+    erb :"items/save_item"
   end
+end
 
+post "/save_item/:item_id" do
+  @item = Item.find_by_id(params[:item_id])
+
+  if @item.update_attributes(params[:item])
+    redirect "/potlucks"
+  else
+    erb :"potlucks/:potluck_id"
+  end
 end

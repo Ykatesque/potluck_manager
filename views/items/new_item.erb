@@ -3,7 +3,7 @@
 Add an Item
 <form method="post" action="/new_item">
   Item:
-  <input type="text" name="item[name]">
+  <input type="text" name="item[name]" value="<%= @item.name %>">
 
   Potluck (to be replaced by automation)
   <select name="item[potluck_id]">
@@ -16,7 +16,7 @@ Add an Item
   <% Tag.all.each do |tag| %>
       <input type="checkbox"
       name="item[tag_ids][]"
-      value="<%= tag.id %>">
+      value="<%= tag.id %>"<%= "checked" if @item.tags.include?(tag) %>>
         <%= tag.name %>
         <br>
       <% end %>
