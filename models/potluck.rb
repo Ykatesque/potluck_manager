@@ -1,9 +1,5 @@
 class Potluck < ActiveRecord::Base
-
-has_many :tags
-has_many :items
-
-
-
+  has_many :tags
+  has_many :items
 end
 

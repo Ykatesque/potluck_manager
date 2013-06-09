@@ -3,8 +3,11 @@
   <div class="large-8 columns large-centered">
 
 <h3>Name: <%= @potluck.name %></h3>
-<h3>Location: <%= @potluck.location %></h3>
-
+<h4>Location: <%= @potluck.location %></h4>
+<h4>Date: <%= @potluck.date %></h4>
+<!--Pushing this button needs to add a new item to the potluck connecting them
+  through the database-->
+  <a href="new_potluck" class="button success small">Add Item</a><br><br>
 <table>
   <thead>
     <tr>
@@ -16,12 +19,12 @@
   </thead>
   <tbody>
     <tr>
-
-      <td></td>
-      <td></td>
-      <td>  </td>
+      <% @items.each do |item| %>
+      <td><%= item.name %></td>
+      <td><%= item.tags.map {|tag| tag.name }.join(", ") %></td>
+      <td>Owner</td>
       <td>Edit</td>
-    </tr>
+    </tr><% end %>
   </tbody>
 </table>
 

@@ -10,9 +10,9 @@ get "/deets_potluck/:potluck_id" do
   #clean up these first lines
   @potluck = Potluck.find_by_id(params[:potluck_id])
   @potlucks = Potluck.all
-  @potluck = Potluck.new(params[:potluck])
 
   @items = Item.new(params[:item])
+  @items = Item.all
 
   erb :"potlucks/deets_potluck"
 

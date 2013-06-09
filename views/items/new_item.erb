@@ -1,15 +1,33 @@
-Add a new item:
+<!--Can we use the same form? Can't we change on the
+  models page that if the items are new, make an item,
+  if they are updating, then make an item?
+  This is used for saving edit:
+  <form method="post" action="/save_item/<%= @item.id %>">
+-->
+
+Add or Edit an Item
 <form method="post" action="/new_item">
   Item:
-  <input type="text" name="item[name]">
-
+  <input type="text" name="item[name]" value="<%= @item.name %>">
+<!--This is just like how we pulled the stocks on the portfolio new/edit page
+  in brokerage. they were in a bridge the same way-->
   <% Tag.all.each do |tag| %>
       <input type="checkbox"
       name="item[tag_ids][]"
-      value="<%= tag.id %>">
-      <%= tag.name %>
+      value="<%= tag.id %>"
+        <%= "checked" if @tag.items.include?(tag) %>>
+        <%= tag.name %>
+        <br>
+      <% end %>
+<!--This should have a drop down with existing ppl in the system plus an option to
+  make a new person. if desired. This is like the client assign on portfolio-->
+    Assigned?
 
-    <% end %>
+    <select name="portfolio[client_id]">
+      <% Client.all.each do |client| %>
+        <option value="<%= client.id %>"><%= client.name %></option>
+      <% end %>
+    </select>
 
     <br>
   <button>Save Item</button>

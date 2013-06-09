@@ -9,7 +9,7 @@ post "/new_person" do
 @person = Person.new(params[:person])
 
   if @person.save
-    redirect "/"
+    redirect "/admin"
   else
     erb :"people/new_person"
   end

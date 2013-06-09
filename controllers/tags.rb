@@ -6,7 +6,7 @@ post "/new_tag" do
 @tag = Tag.new(params[:tag])
 
   if @tag.save
-    redirect "/tags"
+    redirect "/admin"
   else
     erb :"tags/new_tag"
   end
@@ -25,7 +25,7 @@ post "/save_tag/:tag_id" do
 
 
   if @tag.update_attributes(params[:tag])
-    redirect "/tags"
+    redirect "/admin"
   else
     erb :"tags/edit_tag"
   end
