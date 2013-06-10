@@ -2,11 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
+    <script type="text/javascript" src="/vendor/jquery.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps:400,700' rel='stylesheet' type='text/css'>
+
 
     <link rel="stylesheet" href="/normalize.css">
     <link rel="stylesheet" href="/foundation.css">
-    <link rel="stylesheet" href="/reveal.css">
+    <link rel="stylesheet" href="/vendor/reveal.css">
+
     <script type="text/javascript" src="/vendor/custom.modernizr.js"></script>
     <script type="text/javascript" src="/vendor/zepto.js"></script>
     <script type="text/javascript" src="/foundation.min.js"></script>
@@ -41,7 +44,25 @@
 
           <%= yield %>
 
-        </div>
+
+       <div id="itemModal" class="reveal-modal" data-reveal-ajax="/new_potluck">
+
+
       </div>
+
+
+
+      <script>
+      $(document).ready(
+        $("#modal").click(function(){
+          $('#itemModal').foundation('reveal', 'open', '/new_potluck');
+        }
+          ))
+      $(document).ready(
+        $("#closemodal").click(function() {
+          $('#itemModal').foundation('reveal', 'close', '/new_potluck');
+        })
+        )
+      </script>
     </body>
 </html>

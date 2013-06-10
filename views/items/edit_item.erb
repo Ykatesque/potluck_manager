@@ -1,12 +1,13 @@
 <div class="row">
   <div class="large-6 columns large-centered">
-    <h2 class="luckypot">Add an Item</h2>
+    <h2 class="luckypot">Edit an Item</h2>
     <form method="post" action="/save_item/<%= @item.id %>">
       Item:
       <input type="text" name="item[name]" value="<%= @item.name %>">
 
       Potluck
       <select name="item[potluck_id]">
+        <option>Select existing or add new Potluck Below</a></option>
         <% Potluck.all.each do |potluck| %>
           <option <%= "selected" if (@item.potluck == potluck) %> value="<%= potluck.id %>"><%= potluck.name %></option>
         <% end %>
@@ -20,6 +21,13 @@
             <%= tag.name %>
             <br>
           <% end %>
+
+          <select name="item[person_id]">
+            <option>Select existing or add new Person Below</a></option>
+            <% Person.all.each do |person| %>
+              <option <%= "selected" if (@item.person == person) %> value="<%= person.id %>"><%= person.name %></option>
+            <% end %>
+          </select>
       <button>Save Item</button>
     </form>
   </div>

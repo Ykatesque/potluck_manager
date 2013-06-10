@@ -4,7 +4,7 @@
     <h4>Claim Item as Existing user:</h4>
     <form class="customRadio" method="post" action="/item_assign/<%= @item.id %>">
 
-    <select name="item[person_id]" include_blank>
+    <select name="item[person_id]">
       <option>Select existing or add new Person Below</a></option>
       <% Person.all.each do |person| %>
         <option value="<%= person.id %>"><%= person.name %></option>
