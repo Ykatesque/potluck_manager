@@ -13,3 +13,16 @@ I tried to make it only show items belonging to that potluck but the while loop 
 
 
   Maybe we can use something like: <%= "checked" if @item.tags.include?(tag)
+
+  <div class="row">
+    <div class="small-4 columns right">
+      <ul> <li>
+        <% @potluck.items.each do |item| %>
+        <% if (item.person && item.potluck) %>
+            <%= @person.name %> a <%= @person.gender %> and single? <%= @person.relationship %>
+            <% else %></li>
+            <li>No people yet</li>
+            <%end%> <%end%>
+      </ul>
+    </div>
+  <div>

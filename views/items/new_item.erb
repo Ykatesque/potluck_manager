@@ -1,38 +1,64 @@
 <div class="row">
   <div class="large-6 columns large-centered">
-Add an Item
-<form method="post" action="/new_item">
-  Item:
-  <input type="text" name="item[name]" value="<%= @item.name %>">
+   <!--  <h2 class="luckypot"> </h2> -->
+    <h2 class="luckypot">Add an Item</h2>
+    <form method="post" action="/new_item">
+      Item:
+      <input type="text" name="item[name]">
 
-  Potluck (to be replaced by automation)
-  <select name="item[potluck_id]">
-    <% Potluck.all.each do |potluck| %>
-      <option value="<%= potluck.id %>"><%= potluck.name %></option>
-    <% end %>
-  </select>
-<!--This is just like how we pulled the stocks on the portfolio new/edit page
-  in brokerage. they were in a bridge the same way-->
-  <% Tag.all.each do |tag| %>
-      <input type="checkbox"
-      name="item[tag_ids][]"
-      value="<%= tag.id %>"<%= "checked" if @item.tags.include?(tag) %>>
-        <%= tag.name %>
+      Select a Potluck
+      <select name="item[potluck_id]">
+        <% Potluck.all.each do |potluck| %>
+          <option value="<%= potluck.id %>"><%= potluck.name %></option>
+        <% end %>
+      </select>
+    <!--This is just like how we pulled the stocks on the portfolio new/edit page
+      in brokerage. they were in a bridge the same way-->
+      <% Tag.all.each do |tag| %>
+          <input type="checkbox"
+          name="item[tag_ids][]"value="<%=tag.id%>"><%= tag.name %>
+            <br>
+          <% end %>
+
+      <button class="button success small">Create without Assigning</button>
+
+      <h4>Create and Assign to Existing user:</h4>
+
+      <select name="item[person_id]" include_blank>
+        <option>Select existing or add new Person Below</a></option>
+        <% Person.all.each do |person| %>
+          <option value="<%= person.id %>"><%= person.name %></option>
+        <% end %>
+      </select>
+        <button class="button success small">Create and Assign</button>
+
+      <h4>Create Item, New User, & Assign Item:</h4>
+        Name:
+        <input type="text" name="person[name]">
         <br>
-      <% end %>
+        Sex:
+       <div class="switch">
+         <input id="x" name="person[gender]" value="f" type="radio" checked >
+         <label for="x" onclick="">Female</label>
 
-<!--This should have a drop down with existing ppl in the system plus an option to
-  make a new person. if desired. This is like the client assign on portfolio-->
-    Assigned?
+         <input id="x1" name="person[gender]" value="m" type="radio">
+         <label for="x1" onclick="">Male</label>
 
-    <select name="item[person_id]">
-      <% Person.all.each do |person| %>
-        <option value="<%= person.id %>"><%= person.name %></option>
-      <% end %>
-    </select>
+         <span></span>
+       </div>
+       Single:
+       <div class="switch">
+         <input id="x" value ="true" name="person[relationship]" type="radio" checked  >
+         <label for="x" onclick="">Single</label>
 
-    <br>
-  <button>Save Item</button>
-</form>
-</div>
+         <input id="x1" value ="false" name="person[relationship]" type="radio">
+         <label for="x1" onclick="">Taken</label>
+
+         <span></span>
+       </div>
+          <br>
+          <br>
+        <button class="button success medium">Create and Assign</button>
+    </form>
+  </div>
 </div>

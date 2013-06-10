@@ -1,35 +1,32 @@
-<h3 class="luckypot">Tags</h3>
-<a href="new_tag" class="button success small">New tag</a><br><br>
-<ul>
-  <% @tags.each do |tag| %>
-    <li>
-      <strong><%= tag.name %></strong> <a href="/edit_tag/<%= tag.id %>">Edit</a>
+<div>
+  <div>
 
+      <h3 class="luckypot">Tags</h3>
+      <a href="new_tag" class="button success small">New tag</a><br><br>
+      <ul>
+        <% @tags.each do |tag| %>
+          <li>
+            <strong><%= tag.name %></strong> <a href="/edit_tag/<%= tag.id %>">Edit</a>
+          </li>
+        <% end %>
+      </ul>
 
-    </li>
-  <% end %>
-</ul>
+      <h3 class="luckypot">People</h3>
+      <a href="new_person" class="button success small">New Person</a><br><br>
+      <ul>
+        <% @people.each do |person| %>
+          <li>
+            <strong><%= person.name %></strong> who is <%= person.gender %> and single? <%= person.relationship %> <a href="/edit_person/<%= person.id %>">Edit</a>
+          </li>
+        <% end %>
+      </ul>
 
-<h3 class="luckypot">People</h3>
-<a href="new_person" class="button success small">New Person</a><br><br>
-<ul>
-  <% @people.each do |person| %>
-    <li>
-      <strong><%= person.name %></strong> who is <%= person.gender %> and single? <%= person.relationship %> <a href="/edit_person/<%= person.id %>">Edit</a>
-
-
-    </li>
-  <% end %>
-</ul>
-
-<h3 class="luckypot">Items - THESE ARE POTLUCK SPECIFIC</h3>
-<a href="new_item" class="button success small">New Item</a><br><br>
-<ul>
-  <% @items.each do |item| %>
-    <li>
-      <strong><%= item.name %></strong> <a href="/edit_item/<%= item.id %>">Edit</a>
-
-
-    </li>
-  <% end %>
-</ul>
+      <h3 class="luckypot">All Items</h3>
+      <a href="new_item" class="button success small">New Item</a><br><br>
+      <ul>
+        <% @items.each do |item| %>
+          <li>
+            <strong><%= item.name %></strong> <a href="/edit_item/<%= item.id %>">Edit</a> tags: <%= item.tags.map {|tag| tag.name }.join(", ") %> at potluck: <%= (item.potluck.name if item.potluck) %> and brought by <%= (item.person.name if item.person) %>
+          </li>
+        <% end %>
+      </ul>

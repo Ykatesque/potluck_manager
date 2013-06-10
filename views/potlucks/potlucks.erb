@@ -1,11 +1,11 @@
 <h1>GET LUCKY AT A LUCKYPOT</h1>
 
-<h3 class="luckypot">Upcoming</h3>
+<h3 class="luckypot">Upcoming Potlucks</h3>
 <a href="new_potluck" class="button success small">New potluck</a><br><br>
-<ul>
+  <ul>
   <% @potlucks.each do |potluck| %>
     <li>
       <strong><a href="/deets_potluck/<%= potluck.id %>"><%= potluck.name %></a></strong> on <%= potluck.date %> at <%= potluck.location %> <a href="/edit_potluck/<%= potluck.id %>">Edit</a>
     </li>
-  <% end %>
-</ul>
+    <% end %>
+    </ul>
