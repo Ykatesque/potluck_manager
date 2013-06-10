@@ -2,6 +2,7 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require 'sinatra/activerecord'
+require "pry"
 
 # 1. Establish a connection to the specific database we're using.
 

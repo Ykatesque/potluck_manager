@@ -25,7 +25,8 @@ post "/new_potluck" do
 
   if @potluck.save
     @potluck = Potluck.find_by_id(params[:potluck_id])
-    redirect "/deets_potluck/:potluck_id" # WHY YOU NO WORK
+
+    redirect "/potlucks"
   else
     erb :"potlucks/new_potluck"
   end
@@ -41,7 +42,7 @@ end
 
 get "/edit_potluck/:potluck_id" do
   @potluck = Potluck.find_by_id(params[:potluck_id])
-  erb :"potlucks/edit_potluck"
+  redirect "/deets_potluck/#{params[:potluck_id]}"
 end
 
 
@@ -50,7 +51,8 @@ post "/save_potluck/:potluck_id" do
 
   if @potluck.update_attributes(params[:potluck])
     @potluck = Potluck.find_by_id(params[:potluck_id])
-    redirect "/potlucks"
+
+    redirect "/deets_potluck/#{params[:potluck_id]}"
   else
     erb :"potlucks/edit_potluck"
   end
