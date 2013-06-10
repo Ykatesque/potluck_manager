@@ -20,45 +20,7 @@
             <br>
           <% end %>
 
-      <button class="button success small">Create without Assigning</button>
-
-      <h4>Create and Assign to Existing user:</h4>
-
-      <select name="item[person_id]" include_blank>
-        <option>Select existing or add new Person Below</a></option>
-        <% Person.all.each do |person| %>
-          <option value="<%= person.id %>"><%= person.name %></option>
-        <% end %>
-      </select>
-        <button class="button success small">Create and Assign</button>
-
-      <h4>Create Item, New User, & Assign Item:</h4>
-        Name:
-        <input type="text" name="person[name]">
-        <br>
-        Sex:
-       <div class="switch">
-         <input id="x" name="person[gender]" value="f" type="radio" checked >
-         <label for="x" onclick="">Female</label>
-
-         <input id="x1" name="person[gender]" value="m" type="radio">
-         <label for="x1" onclick="">Male</label>
-
-         <span></span>
-       </div>
-       Single:
-       <div class="switch">
-         <input id="x" value ="true" name="person[relationship]" type="radio" checked  >
-         <label for="x" onclick="">Single</label>
-
-         <input id="x1" value ="false" name="person[relationship]" type="radio">
-         <label for="x1" onclick="">Taken</label>
-
-         <span></span>
-       </div>
-          <br>
-          <br>
-        <button class="button success medium">Create and Assign</button>
+        <button class="button success medium">Create Item</button>
     </form>
   </div>
 </div>

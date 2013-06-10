@@ -18,14 +18,13 @@ get "/item_assign/:item_id" do
 end
 
 #clean this up
-post "/new_item/:potluck_id" do
-  @item = Item.new(:name => params[:item_name])
+post "/new_item" do
+  @item = Item.new(params[:item])
 
   if @item.save
-    @potluck = Potluck.find_by_name(params[:potluck_name])
-    @item.update_attributes(:potluck_id => @potluck.id)
+    @item.update_attributes(params[:item])
 
-    redirect "/deets_potluck/:potluck_id"
+    redirect "/potlucks"
   else
     erb :"items/new_item"
   end
