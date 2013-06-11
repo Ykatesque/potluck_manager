@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8">
     <script type="text/javascript" src="/vendor/jquery.js"></script>
-    <link href='http://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Oleo+Script:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps' rel='stylesheet' type='text/css'>
 
 
     <link rel="stylesheet" href="/normalize.css">
@@ -13,16 +14,60 @@
     <script type="text/javascript" src="/vendor/custom.modernizr.js"></script>
     <script type="text/javascript" src="/vendor/zepto.js"></script>
     <script type="text/javascript" src="/foundation.min.js"></script>
-    <script type="text/javascript" src="/vendor/jquery.reveal.js"></script>
+    <!--script type="text/javascript" src="/vendor/jquery.reveal.js"></script-->
+
+    <script type="text/javascript" src="/vendor/spectragram.min.js"></script>
+
+    <script type="text/javascript">
+    jQuery.fn.spectragram.accessData = {
+        accessToken: '7332fc7e51744686ba5b4788611dd482',
+        clientID: '9f3c18fe954d4d6d8b7199578c3510a7'
+    };
+    </script>
+
 
     <title>Get LuckyPots</title>
+    <style>
+
+    .top-bar   {
+      height: 90px;
+     background: #595959; /* Old browsers */
+     background: -moz-linear-gradient(top, #595959 0%, #2c2c2c 100%); /* FF3.6+ */
+     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#595959), color-stop(100%,#2c2c2c)); /* Chrome,Safari4+ */
+     background: -webkit-linear-gradient(top, #595959 0%,#2c2c2c 100%); /* Chrome10+,Safari5.1+ */
+     background: -o-linear-gradient(top, #595959 0%,#2c2c2c 100%); /* Opera 11.10+ */
+     background: -ms-linear-gradient(top, #595959 0%,#2c2c2c 100%); /* IE10+ */
+     background: linear-gradient(to bottom, #595959 0%,#2c2c2c 100%); /* W3C */
+     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#595959', endColorstr='#2c2c2c',GradientType=0 ); /* IE6-9 */
+     -moz-box-shadow:    3px 3px 5px 6px #ccc;
+      -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+      box-shadow:         3px 3px 5px 6px #ccc
+
+
+
+    }
+    .top-bar .name h1 a {
+     font-size: 50px;
+     padding-bottom: 20px;
+     font-family: 'Oleo Script Swash Caps', cursive;
+     color: red;
+     letter-spacing: 2px;
+     text-shadow:2px 2px 8px #000000;
+
+
+    }
+    .yellow {
+      color: #FFCC00;
+      display: inline;
+    }
+    </style>
   </head>
     <body>
       <nav class="top-bar">
         <ul class="title-area">
           <!-- Title Area -->
           <li class="name">
-            <h1 class="luckypot"><a href="/">Get LuckyPots </a></h1>
+            <h1 class="luckypot"><a href="/"><p class="yellow">Get</p> Lucky <p class="yellow">Pots</p> </a></h1>
           </li>
           <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
           <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
@@ -44,15 +89,14 @@
 
           <%= yield %>
 
-
-       <div id="itemModal" class="reveal-modal" data-reveal-ajax="/new_potluck">
-
-
+        </div>
       </div>
 
 
 
-      <script>
+
+
+    <script>
       $(document).ready(
         $("#modal").click(function(){
           $('#itemModal').foundation('reveal', 'open', '/new_potluck');
@@ -60,9 +104,18 @@
           ))
       $(document).ready(
         $("#closemodal").click(function() {
-          $('#itemModal').foundation('reveal', 'close', '/new_potluck');
+          $('#itemModal').foundation('reveal', 'close');
         })
         )
-      </script>
-    </body>
+    </script>
+
+
+
+
+
+
+
+
+</body>
+
 </html>

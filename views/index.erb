@@ -1,5 +1,8 @@
-<h1>THIS IS THE INDEX PAGE</h1>
 
+<h1>THIS IS THE INDEX PAGE</h1>
+<ul class="tagsFeed">
+
+</ul>
 <h3>We need to:</h3>
 <ul>
     <li>***Need Potluck Id to auto be connected to new item form and populate potluck name on it.</li>
@@ -12,9 +15,42 @@
     <li>Need to remove fluff on controller pages</li>
 </ul>
   </div>
-  <div>
-<id="modal" button class="button" data-reveal-ajax="/new_potluck">Modal</a>
+<a href="#" id="modal" button class="button">Create New Potluck</a>
 </div>
+
+ <div id="itemModal" class="reveal-modal">
+
+  <form method="post" action="/new_potluck">
+    Potluck Name:
+    <input type="text" name="potluck[name]"><br>
+    Potluck Location:
+    <input type="text" name="potluck[location]"><br>
+    Potluck Date:
+    <input type="date" name="potluck[date]"><br><br>
+
+    <button class="button success small">Save Potluck</button>
+  </form>
+</div>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+
+  $('.tagsFeed').spectragram('getRecentTagged', {
+    query: 'potluck', //this gets the recent photo feed tagged with the word: potluck
+    size: 'small'
+
+  });
+
+});
+
+</script>
+
+
+
+
+
+
 
 
 

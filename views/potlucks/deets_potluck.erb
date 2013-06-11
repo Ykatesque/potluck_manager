@@ -5,7 +5,7 @@
 <h2 class="luckypot"><%= @potluck.name %></h2>
 <h4>Location: <%= @potluck.location %></h4>
 <h4>Date: <%= @potluck.date.strftime("%A, %b %d, %Y") %></h4>
-  <a href="/new_item/<%= @potluck.id %>" class="button success small">Add Item</a><br><br>
+  <a href="#" id="modal" button class="button">Add Item</a>
 <table>
   <thead>
     <tr>
@@ -32,3 +32,24 @@
   </div>
 </div>
 
+
+<div id="itemModal" class="reveal-modal">
+
+<form method="post" action="/new_item">
+  Item:
+  <input type="text" name="item[name]">
+  <input type="hidden" name="item[potluck_id]" value="<%= @potluck.id %>">
+
+
+<!--This is just like how we pulled the stocks on the portfolio new/edit page
+  in brokerage. they were in a bridge the same way-->
+  <% Tag.all.each do |tag| %>
+      <input type="checkbox"
+      name="item[tag_ids][]"value="<%=tag.id%>"><%= tag.name %>
+        <br>
+      <% end %>
+
+    <button class="button success medium">Create Item</button>
+</form>
+
+</div>
