@@ -1,5 +1,6 @@
 
-<h1>THIS IS THE INDEX PAGE</h1>
+
+
 <ul class="tagsFeed">
 
 </ul>
@@ -37,8 +38,10 @@
 $(document).ready(function() {
 
   $('.tagsFeed').spectragram('getRecentTagged', {
-    query: 'potluck', //this gets the recent photo feed tagged with the word: potluck
-    size: 'small'
+    query: 'picnic', //this gets the recent photo feed tagged with the word: potluck
+    size: 'small',
+    min: 16,
+
 
   });
 
