@@ -3,7 +3,7 @@
   <div class="large-8 columns large-centered">
 
 <h2 class="luckypot"><%= @potluck.name %></h2>
-<ul class="tagfeed">
+<ul class="tagsFeed">
   </ul>
 <h4>Location: <%= @potluck.location %></h4>
 <h4>Date: <%= @potluck.date.strftime("%A, %b %d, %Y") %></h4>
@@ -61,7 +61,7 @@
 $(document).ready(function() {
 
   $('.tagsFeed').spectragram('getRecentTagged', {
-    query: 'cats', //this gets the recent photo feed tagged with the word: potluck
+    query: 'lettuce+cat', //this gets the recent photo feed tagged with the word: potluck
     size: 'small',
     min: 16,
 
