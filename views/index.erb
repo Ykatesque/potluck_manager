@@ -1,5 +1,5 @@
 
-
+<img src="http://distilleryimage9.s3.amazonaws.com/3b16aeead2f411e284c522000aa801df_5.jpg">
 
 <ul class="tagsFeed"></ul>
 
@@ -22,9 +22,16 @@
 $(document).ready(function() {
 
   $('.tagsFeed').spectragram('getRecentTagged', {
-    query: 'picnic', //this gets the recent photo feed tagged with the word: potluck
+    query: 'potluck',//this gets the recent photo feed tagged with the word: potluck
     size: 'small',
-    min: 16,
+    min: 26,
+
+
+  });
+  $('.tagsFeed').spectragram('getRecentTagged', {
+    query: 'potlucks',//this gets the recent photo feed tagged with the word: potluck
+    size: 'small',
+    min: 26,
 
 
   });
