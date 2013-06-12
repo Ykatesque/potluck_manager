@@ -1,8 +1,8 @@
 <div>
   <div>
 
-      <h3 class="luckypot">Tags</h3>
-      <a href="new_tag" class="button success small">New Item tag</a><br><br>
+      <h3 class="luckypot">Item Tags</h3>
+      <a href="new_tag" class="button small">New Item tag</a><br><br>
       <ul>
         <% @tags.each do |tag| %>
           <li>
@@ -11,8 +11,18 @@
         <% end %>
       </ul>
 
+      <h3 class="luckypot">Potluck Keyword</h3>
+      <a href="new_keyword" class="button small">New Potluck Keyword</a><br><br>
+      <ul>
+        <% @keywords.each do |keyword| %>
+          <li>
+            <strong><%= keyword.name %></strong> <a href="/edit_keyword/<%= keyword.id %>">Edit</a>
+          </li>
+        <% end %>
+      </ul>
+
       <h3 class="luckypot">People</h3>
-      <a href="new_person" class="button success small">New Person</a><br><br>
+      <a href="new_person" class="button small">New Person</a><br><br>
       <ul>
         <% @people.each do |person| %>
           <li>
@@ -22,7 +32,7 @@
       </ul>
 
       <h3 class="luckypot">All Items</h3>
-      <a href="new_item" class="button success small">New Item</a><br><br>
+      <a href="new_item" class="button small">New Item</a><br><br>
       <ul>
         <% @items.each do |item| %>
           <li>

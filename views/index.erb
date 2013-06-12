@@ -1,5 +1,4 @@
 
-<img src="http://distilleryimage9.s3.amazonaws.com/3b16aeead2f411e284c522000aa801df_5.jpg">
 
 <ul class="tagsFeed"></ul>
 
@@ -18,27 +17,12 @@
 </div>
 
 
-<script type="text/javascript">
-$(document).ready(function() {
+<% get_pictures.each do |picture| %>
 
-  $('.tagsFeed').spectragram('getRecentTagged', {
-    query: 'potluck',//this gets the recent photo feed tagged with the word: potluck
-    size: 'small',
-    min: 26,
+ <img src="<%=picture%>">
 
 
-  });
-  $('.tagsFeed').spectragram('getRecentTagged', {
-    query: 'potlucks',//this gets the recent photo feed tagged with the word: potluck
-    size: 'small',
-    min: 26,
-
-
-  });
-
-});
-
-</script>
+<% end %>
 
 
 
