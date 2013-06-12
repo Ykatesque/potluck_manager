@@ -1,0 +1,32 @@
+
+<div class="row">
+  <div class="large-8 columns large-centered">
+
+<h2>Hi there, I'm <%= @person.name %>!</h2>
+<h3>I'm <%=@person.gender%> and <%=@person.relationship%></h3>
+
+<h4>Upcoming LuckyPots</h4>
+<p>Looks like <%=@person.name%> isn't signed up for an upcoming LuckyPot. Why don't you invite her to one?</p>
+<!--TabEach code to show upcoming potlucks for user-->
+
+
+<table>
+  <thead><h4>Past LuckyPots</h4></thead>
+    <tr>
+      <th>Name</th>
+      <th>Date</th>
+      <th>Item Brought</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% @potlucks.each do |potluck| %>
+      <td><%= potluck.name %></td>
+      <td><%= potluck.date.strftime("%A, %b %d, %Y") %></td>
+      <td></td>
+    </tr><%end%>
+  </tbody>
+</table>
+
+  </div>
+</div>
