@@ -1,6 +1,5 @@
 
 
-
 <ul class="tagsFeed"></ul>
 
  <div id="itemModal" class="reveal-modal">
@@ -18,20 +17,12 @@
 </div>
 
 
-<script type="text/javascript">
-$(document).ready(function() {
+<% get_pictures.each do |picture| %>
 
-  $('.tagsFeed').spectragram('getRecentTagged', {
-    query: 'picnic', //this gets the recent photo feed tagged with the word: potluck
-    size: 'small',
-    min: 16,
+ <img src="<%=picture%>">
 
 
-  });
-
-});
-
-</script>
+<% end %>
 
 
 
