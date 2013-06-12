@@ -12,6 +12,7 @@ require_relative "models/potluck"
 require_relative "models/item"
 require_relative "models/tag"
 require_relative "models/person"
+require_relative "models/keyword"
 #require_relative "helpers/form_helpers"
 require_relative "db_info"
 
@@ -32,6 +33,7 @@ get "/admin" do
   @tags = Tag.all
   @potlucks = Potluck.all
   @items = Item.all
+  @keywords = Keyword.all
 
   erb :"tags/admin"
 end
@@ -41,4 +43,5 @@ require_relative "controllers/items"
 require_relative "controllers/potlucks"
 require_relative "controllers/people"
 require_relative "controllers/tags"
+require_relative "controllers/keywords"
 
