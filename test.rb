@@ -11,7 +11,7 @@ end
 def get_pictures
   results = Instagram.tag_recent_media("potluck")
   results_array = []
-  while results_array.length < 30
+  while results_array.length < 16
     results.each do |image|
       url = image.images.thumbnail.url
         results_array << url

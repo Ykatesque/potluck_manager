@@ -11,9 +11,11 @@
     <link rel="stylesheet" href="/foundation.css">
     <link rel="stylesheet" href="/vendor/reveal.css">
 
-    <script type="text/javascript" src="/vendor/custom.modernizr.js"></script>
+
     <script type="text/javascript" src="/vendor/zepto.js"></script>
     <script type="text/javascript" src="/foundation.min.js"></script>
+    <script type="text/javascript" src="/vendor/custom.modernizr.js"></script>
+    <script type="text/javascript" src="/vendor/foundation/forms.js"></script>
     <!--script type="text/javascript" src="/vendor/jquery.reveal.js"></script-->
 
     <script type="text/javascript" src="/vendor/spectragram.min.js"></script>
@@ -102,19 +104,13 @@
             <li class="divider"></li>
             </uL>
             <ul class="right">
-            <li> <img src="https://graph.facebook.com/yekaterina/picture">;
-</li>
+            <li> <img src="https://graph.facebook.com/yekaterina/picture">;</li>
        </ul>
         </section>
       </nav>
 
-      <div class="row">
-        <div class="large-12 columns">
 
           <%= yield %>
-
-        </div>
-      </div>
 
 
 
@@ -123,7 +119,7 @@
     <script>
       $(document).ready(
         $("#modal").click(function(){
-          $('#itemModal').foundation('reveal', 'open', '/new_potluck');
+          $('#itemModal').foundation('reveal', 'open');
         }
           ))
       $(document).ready(
@@ -137,6 +133,16 @@
 
 
 
+    <!-- Check for Zepto support, load jQuery if necessary -->
+    <script>
+      document.write('<script src=/js/vendor/'
+        + ('__proto__' in {} ? 'zepto' : 'jquery')
+        + '.js><\/script>');
+    </script>
+
+    <script>
+      $(document).foundation();
+    </script>
 
 
 

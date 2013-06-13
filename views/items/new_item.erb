@@ -11,7 +11,7 @@
     <!--This is just like how we pulled the stocks on the portfolio new/edit page
       in brokerage. they were in a bridge the same way-->
       <% Tag.all.each do |tag| %>
-          <input type="checkbox"
+          <input type="checkbox" id="checkbox"
           name="item[tag_ids][]"value="<%=tag.id%>"><%= tag.name %>
             <br>
           <% end %>
