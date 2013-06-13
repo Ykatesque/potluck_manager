@@ -1,7 +1,9 @@
-<h1>GET LUCKY AT A LUCKYPOT</h1>
+<div class="row">
+  <div class="large-12 columns">
+    <h1>GET LUCKY AT A LUCKYPOT</h1>
 
 <h3 class="luckypot">Upcoming Potlucks</h3>
-<a href="#" id="modal" button class="button">Create New Potluck</a><br><br>
+<a href="#" id="modal" button class="button">Plan a Potluck</a><br><br>
   <ul>
   <% @potlucks.each do |potluck| %>
     <li>
@@ -9,3 +11,57 @@
     </li>
     <% end %>
     </ul>
+  </div>
+</div>
+
+<div id="itemModal" class="reveal-modal">
+
+    <form method="post" action="/new_potluck" class="custom">
+      <Fieldset>
+        <legend>Create your Potluck</legend>
+
+          <div class="row">
+              <div class="large-12 columns">
+                <label>Potluck Name:</label>
+                <input type="text" name="potluck[name]" placeholder="i.e. Hot Dog Bonanza">
+              </div>
+          </div>
+
+          <div class="row">
+              <div class="large-12 columns">
+                <label>Location:</label>
+                <input type="text" name="potluck[location]" placeholder="i.e. South Park">
+              </div>
+            </div>
+
+          <div class="row">
+              <div class="large-6 columns">
+                <label>Date:</label>
+                <input type="date" name="potluck[date]">
+              </div>
+              <div class="large-6 columns">
+                <label>Time:</label>
+                <input type="time" name="time">
+              </div>
+          </div>
+
+          <div class="row">
+            <div class="large-6 columns">
+              <label>Keywords:</label>
+              <% Keyword.all.each do |keyword| %>
+                  <label for="checkbox + [<%keyword.id%>]"><input type="checkbox" id="checkbox + [<%keyword.id%>]"
+                  name="potluck[keyword_ids][]" style="display: none;" value="<%=keyword.id%>"><%= keyword.name %>
+                    <br></label>
+                  <% end %>
+            </div>
+          </div>
+    </fieldset>
+
+    <div class="row">
+      <div class="large-12 columns text-right">
+          <button class="button small">Create Potluck</button>
+      </div>
+      </div>
+    </form>
+<a class="close-reveal-modal " id="closemodal">&#215;</a>
+</div>

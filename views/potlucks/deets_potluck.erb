@@ -2,41 +2,42 @@
 <div class="row">
   <div class="large-8 columns large-centered">
 
-<h2 class="luckypot"><%= @potluck.name %></h2>
-<ul class="tagsFeed">
-  </ul>
-<h4>Location: <%= @potluck.location %></h4>
-<h4>Date: <%= @potluck.date.strftime("%A, %b %d, %Y") %></h4>
-  <a href="#" id="modal" button class="button">Add Item</a>
-<table>
-  <thead>
-    <tr>
-      <th>Item</th>
-      <th>Tags</th>
-      <th>Assigned?</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <% @potluck.items.each do |item| %>
-      <td><%= item.name %></td>
-      <td><%= item.tags.map {|tag| tag.name }.join(", ") %></td>
-      <td>
-      <% if item.person %> <%= item.person.name %>
-      <% else %>
-      <a href="/item_assign/<%=item.id%>">Claim</a><%end%></td>
-      <td><a href="/edit_item/<%= item.id %>">Edit</a></td>
-    </tr><% end %>
-  </tbody>
-</table>
+    <h2 class="luckypot"><%= @potluck.name %></h2>
+    <ul class="tagsFeed">
+      </ul>
+      <ul><p><em><%= @potluck.keywords.map {|keyword| keyword.name }.join(" - ") %></em></p></ul>
+    <h4>Location: <%= @potluck.location %></h4>
+    <h4>Date: <%= @potluck.date.strftime("%A, %b %d, %Y") %></h4>
+      <a href="#" id="modal" button class="button">Add Item</a>
+    <table>
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Tags</th>
+          <th>Assigned?</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <% @potluck.items.each do |item| %>
+          <td><%= item.name %></td>
+          <td><%= item.tags.map {|tag| tag.name }.join(", ") %></td>
+          <td>
+          <% if item.person %> <%= item.person.name %>
+          <% else %>
+          <a href="/item_assign/<%=item.id%>">Claim</a><%end%></td>
+          <td><a href="/edit_item/<%= item.id %>">Edit</a></td>
+        </tr><% end %>
+      </tbody>
+    </table>
 
   </div>
 </div>
 
 
 <div id="itemModal" class="reveal-modal">
-
+<h2>Add an item</h2>
 <form method="post" action="/new_item">
   Item:
   <input type="text" name="item[name]">
@@ -47,13 +48,13 @@
   in brokerage. they were in a bridge the same way-->
   <% Tag.all.each do |tag| %>
       <input type="checkbox"
-      name="item[tag_ids][]"value="<%=tag.id%>"><%= tag.name %>
+      name="item[tag_ids][]" id="checkbox" value="<%=tag.id%>"><%= tag.name %>
         <br>
       <% end %>
 
     <button class="button success medium">Create Item</button>
 </form>
-
+<a class="close-reveal-modal" id="closemodal">&#215;</a>
 </div>
 
 
@@ -61,7 +62,7 @@
 $(document).ready(function() {
 
   $('.tagsFeed').spectragram('getRecentTagged', {
-    query: 'lettuce+cat', //this gets the recent photo feed tagged with the word: potluck
+    query: '<%= @potluck.keywords.map {|keyword| keyword.name }.sample %>', //this gets the recent photo feed tagged with the word: potluck
     size: 'small',
     min: 16,
 
