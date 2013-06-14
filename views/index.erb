@@ -1,22 +1,17 @@
 
 
+<ul class="large-block-grid-8">
 
-<% get_pictures.each do |picture| %>
+<% insta_tags = "potluck" %>
+<% get_pictures.first(16).each do |picture| %>
 
- <img src="<%=picture%>">
-
+ <li><img src="<%=picture%>"></li>
 
 <% end %>
+</ul>
 
 <div class="row">
   <div class="large-12 columns">
 
 </div>
 </div>
-
-
-
-
-
-
-

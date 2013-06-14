@@ -26,3 +26,25 @@ I tried to make it only show items belonging to that potluck but the while loop 
       </ul>
     </div>
   <div>
+
+  font-family: nothing-you-could-do, cursive;
+
+
+  Old Instagram
+  <script type="text/javascript">
+  $(document).ready(function() {
+
+    $('.tagsFeed').spectragram('getRecentTagged', {
+      query: '<%= @potluck.keywords.map {|keyword| keyword.name }.sample %>', //this gets the recent photo feed tagged with the word: potluck
+      size: 'small',
+      min: 16,
+
+
+    });
+
+  });
+
+  </script>
+
+
+  instagram- use pagination and count to get more pics.
