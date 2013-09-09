@@ -7,11 +7,10 @@ Instagram.configure do |config|
   config.client_secret = "9f3c18fe954d4d6d8b7199578c3510a7"
 end
 
-
 def get_pictures
   results = Instagram.tag_recent_media("potluck")
   results_array = []
-  while results_array.length < 16
+  while results_array.length < 26
     results.each do |image|
       url = image.images.thumbnail.url
         results_array << url

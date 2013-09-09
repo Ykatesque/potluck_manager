@@ -1,10 +1,19 @@
 
 <div class="row">
   <div class="large-8 columns large-centered">
-
     <h2 class="luckypot"><%= @potluck.name %></h2>
-    <ul class="tagsFeed">
-      </ul>
+    <ul class="small-block-grid-4">
+
+
+    <% get_pictures.first(4).each do |picture| %>
+
+     <li><img src="<%=picture%>"></li>
+
+    <% end %>
+    </ul>
+
+
+
       <ul><p><em><%= @potluck.keywords.map {|keyword| keyword.name }.join(" - ") %></em></p></ul>
     <h4>Location: <%= @potluck.location %></h4>
     <h4>Date: <%= @potluck.date.strftime("%A, %b %d, %Y") %></h4>

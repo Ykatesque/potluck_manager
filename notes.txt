@@ -28,7 +28,7 @@ I tried to make it only show items belonging to that potluck but the while loop 
   <div>
 
   font-family: nothing-you-could-do, cursive;
-
+  <% keyword ="@potluck.keywords.map {|keyword| keyword.name }.sample)" %>
 
   Old Instagram
   <script type="text/javascript">

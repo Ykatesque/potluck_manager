@@ -15,15 +15,11 @@
     <script type="text/javascript" src="/vendor/zepto.js"></script>
     <script type="text/javascript" src="/foundation.min.js"></script>
     <script type="text/javascript" src="/vendor/custom.modernizr.js"></script>
-    <script type="text/javascript" src="/vendor/foundation/forms.js"></script>
-    <!--script type="text/javascript" src="/vendor/jquery.reveal.js"></script-->
-
-    <script type="text/javascript" src="/vendor/spectragram.min.js"></script>
 
     <script type="text/javascript">
     jQuery.fn.spectragram.accessData = {
-        accessToken: '10e7238232ec4eb7ac6f6e927f469bb1',
-        clientID: '7332fc7e51744686ba5b4788611dd482'
+        accessToken: ELIZAINSTATOKEN
+        clientID: INSTACLIENTID
     };
     </script>
 
@@ -45,8 +41,6 @@
       margin-bottom: 0;
       padding-bottom: 0;
       z-index: 99;
-
-
 
     }
     .top-bar .name h1 a {
@@ -83,66 +77,61 @@
 
     }
     </style>
-  </head>
-    <body>
-      <nav class="top-bar">
-        <ul class="title-area">
-          <!-- Title Area -->
-          <li class="name">
-            <h1 class="luckypot"><a href="/"><p class="yellow">Get</p> Lucky <p class="yellow">Pots</p> </a></h1>
-          </li>
-          <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-          <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
-        </ul>
-        <section class="top-bar-section">
-          <!-- Left Nav Section -->
-          <ul class="left">
-            <li class="divider"></li>
-            <li class="active"><a href="/potlucks">Potlucks</a></li>
-            <li class="divider"></li>
-            <li><a href="/admin">Admin</a></li>
-            <li class="divider"></li>
-            </uL>
-            <ul class="right">
+</head>
+<body>
+  <div class="fixed">
+    <nav class="top-bar">
+      <ul class="title-area">
+        <!-- Title Area -->
+        <li class="name">
+          <h1 class="luckypot"><a href="/"><p class="yellow">Get</p> Lucky <p class="yellow">Pots</p> </a></h1>
+        </li>
+        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+      </ul>
+      <section class="top-bar-section">
+        <!-- Left Nav Section -->
+        <ul class="left">
+          <li class="divider"></li>
+          <li class="active"><a href="/potlucks">Potlucks</a></li>
+          <li class="divider"></li>
+          <li><a href="/admin">Admin</a></li>
+          <li class="divider"></li>
+          </uL>
+          <ul class="right">
             <li> <img src="https://graph.facebook.com/yekaterina/picture">;</li>
-       </ul>
-        </section>
-      </nav>
+          </ul>
+      </section>
+    </nav>
+  </div>
 
+  <div class="container">
+    <%= yield %>
+  </div>
 
-          <%= yield %>
+<script>
+  $(document).ready(
+    $("#modal").click(function(){
+      $('#itemModal').foundation('reveal', 'open');
+    }
+      ))
+  $(document).ready(
+    $("#closemodal").click(function() {
+      $('#itemModal').foundation('reveal', 'close');
+    })
+    )
+</script>
 
+<!-- Check for Zepto support, load jQuery if necessary -->
+<script>
+  document.write('<script src=/js/vendor/'
+    + ('__proto__' in {} ? 'zepto' : 'jquery')
+    + '.js><\/script>');
+</script>
 
-
-
-
-    <script>
-      $(document).ready(
-        $("#modal").click(function(){
-          $('#itemModal').foundation('reveal', 'open');
-        }
-          ))
-      $(document).ready(
-        $("#closemodal").click(function() {
-          $('#itemModal').foundation('reveal', 'close');
-        })
-        )
-    </script>
-
-
-
-
-
-    <!-- Check for Zepto support, load jQuery if necessary -->
-    <script>
-      document.write('<script src=/js/vendor/'
-        + ('__proto__' in {} ? 'zepto' : 'jquery')
-        + '.js><\/script>');
-    </script>
-
-    <script>
-      $(document).foundation();
-    </script>
+<script>
+  $(document).foundation();
+</script>
 
 
 

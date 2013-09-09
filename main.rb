@@ -1,6 +1,6 @@
 # Include Sinatra and ActiveRecord functionality.
 require 'sinatra'
-require 'sinatra/reloader'
+# require 'sinatra/reloader'
 require 'sinatra/activerecord'
 require 'instagram'
 
