@@ -34,6 +34,7 @@ GEM
     minitest (4.7.5)
     multi_json (1.7.6)
     multipart-post (1.2.0)
+    pg (0.17.1)
     rack (1.5.2)
     rack-protection (1.5.0)
       rack
@@ -60,6 +61,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord
   instagram
+  pg
   sinatra
   sinatra-activerecord
   unicorn
